@@ -10,16 +10,39 @@ angular.module('quoteApp', [])
 
     $scope.allQuotes = [];
 
+    if($scope.allQuotes.length){
+      var placeHolder = $scope.allQuotes.length - 1;
+    }
+
     $scope.getQuote = function(){
       if($scope.quote){
-        $scope.allQuotes.push($scope.quote);
+        placeHolder = $scope.allQuotes.length - 1;
         console.log($scope.allQuotes);
       }
       $http(req).then(function success(res){
         console.log('success', res);
         $scope.quote = res.data;
+        $scope.allQuotes.push($scope.quote);
       }, function error(res){
         console.log('error', res);
       })
+    }
+
+    $scope.previousQuote = function(){
+      console.log('placeHolder', placeHolder);
+      if(placeHolder === 0){
+        $scope.quote = $scope.allQuotes[0];
+      }
+      if($scope.allQuotes.length > 1){
+        if(placeHolder >= 1){
+          $scope.quote = $scope.allQuotes[placeHolder];
+          placeHolder = placeHolder - 1;
+        }
+      } 
+      
+    }
+
+    $scope.nextQuote = function(){
+
     }
   }]);
