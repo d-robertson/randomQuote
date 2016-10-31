@@ -8,9 +8,16 @@ angular.module('quoteApp', [])
       }
     }
 
+    $scope.allQuotes = [];
+
     $scope.getQuote = function(){
+      if($scope.quote){
+        $scope.allQuotes.push($scope.quote);
+        console.log($scope.allQuotes);
+      }
       $http(req).then(function success(res){
         console.log('success', res);
+        $scope.quote = res.data;
       }, function error(res){
         console.log('error', res);
       })
