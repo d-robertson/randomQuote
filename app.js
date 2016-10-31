@@ -14,35 +14,45 @@ angular.module('quoteApp', [])
       var placeHolder = $scope.allQuotes.length - 1;
     }
 
-    $scope.getQuote = function(){
-      if($scope.quote){
-        placeHolder = $scope.allQuotes.length - 1;
-        console.log($scope.allQuotes);
-      }
+    $scope.getQuote = function(){     
       $http(req).then(function success(res){
         console.log('success', res);
         $scope.quote = res.data;
         $scope.allQuotes.push($scope.quote);
+        console.log($scope.allQuotes);
+        if($scope.allQuotes.length){
+          placeHolder = $scope.allQuotes.length - 1;
+        } else {
+          placeHolder = 0;
+        } 
       }, function error(res){
         console.log('error', res);
       })
     }
 
     $scope.previousQuote = function(){
-      console.log('placeHolder', placeHolder);
-      if(placeHolder === 0){
-        $scope.quote = $scope.allQuotes[0];
-      }
-      if($scope.allQuotes.length > 1){
-        if(placeHolder >= 1){
-          $scope.quote = $scope.allQuotes[placeHolder];
-          placeHolder = placeHolder - 1;
-        }
-      } 
       
+      if(placeHolder >= 1){
+        placeHolder = placeHolder - 1;
+        $scope.quote = $scope.allQuotes[placeHolder];
+        console.log('placeHolder', placeHolder);
+      } else {
+        placeHolder = 0;
+        $scope.quote = $scope.allQuotes[0];
+        console.log('placeHolder', placeHolder);
+      }     
     }
 
     $scope.nextQuote = function(){
-
+      
+      if(placeHolder <= $scope.allQuotes.length - 2){
+        placeHolder = placeHolder + 1;
+        $scope.quote = $scope.allQuotes[placeHolder];
+        console.log('placeHolder', placeHolder);
+      } else {
+        placeHolder = $scope.allQuotes.length - 1;
+        $scope.quote = $scope.allQuotes[placeHolder];
+        console.log('placeHolder', placeHolder);
+      }
     }
   }]);
