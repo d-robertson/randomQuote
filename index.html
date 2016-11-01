@@ -8,6 +8,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <script src="//code.jquery.com/jquery.js"></script>
@@ -19,11 +22,32 @@
     <script src="app.js"></script>
 
   </head>
-  <body ng-controller="quoteCtrl">
-    <button class="btn btn-primary" ng-click="getQuote()">Get Quote</button>
-    <button class="btn btn-primary" ng-click="previousQuote()">Previous</button>
-    <button class="btn btn-primary" ng-click="nextQuote()">Next</button>
-    {{quote.quote}}
-    {{quote.author}}
+  <body ng-controller="quoteCtrl" style="background-color:{{color}};">
+    <div class="container">
+      <div class="col-xs-8 col-xs-offset-2 box">
+        <div class="quote">
+          <h2 style="color:{{color}};">&quot{{quote.quote}}&quot</h2>
+        </div>
+        <div class="author">
+          <h4 style="color:{{color}};">-{{quote.author}}</h4>
+        </div>
+        <div class="nav">
+          <span class="col-xs-3">
+            <button class="button previous" ng-click="previousQuote()" style="background-color:{{color}};">Previous</button>
+          </span>
+          <span class="col-xs-3">
+            <button class="button getQuote" ng-click="getQuote()" style="background-color:{{color}};">Get Quote</button>
+          </span>
+          <span class="col-xs-3">
+            <button class="button" ng-click="tweet()" style="background-color:{{color}};">
+              <a class="tweet" href="{{href}}" target="_blank"><i class="fa fa-twitter"></i></a>
+            </button>
+          </span>
+          <span class="col-xs-3">
+            <button class="button next" ng-click="nextQuote()"style="background-color:{{color}};">Next</button>
+          </span>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

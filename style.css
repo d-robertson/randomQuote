@@ -1,7 +1,92 @@
+
+
 body {
-  background-color: yellow;
+  background-color: green;
+  transition: all linear 0.5s;
 }
 
-h1 {
-  color: purple;
+button {
+  border: 0px;
+  outline: none;
 }
+
+span {
+  
+}
+
+a {
+  position: relative;
+}
+
+button:hover {
+        opacity:0.8;
+}
+
+span {
+  text-align: center;
+}
+
+h2 {
+  transition: all linear 0.5s;
+}
+
+h4 {
+  transition: all linear 0.5s;
+}
+
+.box {
+  background-color: white;
+  margin-top: 20%;
+}
+
+.view {
+  border: solid black 1px;
+}
+
+.button {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  transition: all linear 0.5s;
+}
+
+.fa-twitter {
+  color: white;
+  font-size: 28px;
+}
+
+.quote {
+  color: green;
+  /*transition: all linear 0.5s;*/
+  
+}
+
+.author {
+  color: green;
+  margin-left: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /*transition: all linear 0.5s;*/
+  
+}
+
+.previous {
+  /*transition: all linear 0.5s;*/
+}
+
+.getQuote {
+  /*transition: all linear 0.5s;*/
+}
+
+.tweet {
+  /*transition: all linear 0.5s;*/
+}
+
+.next {
+  /*transition: all linear 0.5s;*/
+}
+
+
